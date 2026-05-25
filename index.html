@@ -188,6 +188,8 @@
     .form-row { grid-template-columns: 1fr; }
     footer { flex-direction: column; text-align: center; }
     .pricing-cards-grid { grid-template-columns: 1fr !important; }
+    .addon-grid { grid-template-columns: 1fr !important; }
+    .addon-grid > div { border-right: none !important; border-bottom: 1px solid #d8ccee; }
   }
 </style>
 </head>
@@ -363,6 +365,64 @@
         </div>
       </div>
 
+
+
+  </div>
+</section>
+
+<!-- ADD-ONS -->
+<section style="padding:70px 6%;background:#f0ebfa;">
+  <div style="max-width:1100px;margin:0 auto;">
+    <p style="font-size:11px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#480b70;margin-bottom:12px;">Add-on Services</p>
+    <h2 style="font-family:'Fraunces',serif;font-size:clamp(26px,3vw,40px);line-height:1.2;margin-bottom:14px;color:#1a0a2e;">Need to start from scratch?</h2>
+    <p style="font-size:16px;color:#7a6a8a;font-weight:300;line-height:1.75;max-width:520px;margin-bottom:40px;">Don't have a Facebook or Instagram page yet? I'll build it out for you — fully branded and ready to go.</p>
+
+    <div style="border:1px solid #d8ccee;border-radius:18px;overflow:hidden;">
+
+      <!-- Header -->
+      <div style="background:#480b70;padding:22px 36px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;">
+        <div style="font-family:'Fraunces',serif;font-size:24px;font-weight:700;color:white;">One-time Setup Packages</div>
+        <div style="font-size:13px;color:rgba(255,255,255,0.55);">No contract required</div>
+      </div>
+
+      <!-- Two columns -->
+      <div class="addon-grid" style="display:grid;grid-template-columns:1fr 1fr;background:#faf8ff;">
+        <div style="padding:32px 36px;border-right:1px solid #d8ccee;">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;flex-wrap:wrap;gap:8px;">
+            <div style="font-size:16px;font-weight:600;color:#1a0a2e;">Facebook Page Setup</div>
+            <div style="font-family:'Fraunces',serif;font-size:36px;font-weight:700;color:#c95f3a;line-height:1;">$150</div>
+          </div>
+          <div style="height:1px;background:#d8ccee;margin-bottom:18px;"></div>
+          <div style="display:flex;flex-direction:column;gap:10px;font-size:14px;color:#3a2060;">
+            <div>→ Page creation &amp; full setup</div>
+            <div>→ Bio &amp; about section written</div>
+            <div>→ Profile + cover photo added</div>
+            <div>→ Contact info &amp; website linked</div>
+          </div>
+        </div>
+        <div style="padding:32px 36px;">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;flex-wrap:wrap;gap:8px;">
+            <div style="font-size:16px;font-weight:600;color:#1a0a2e;">Instagram Account Setup</div>
+            <div style="font-family:'Fraunces',serif;font-size:36px;font-weight:700;color:#c95f3a;line-height:1;">$150</div>
+          </div>
+          <div style="height:1px;background:#d8ccee;margin-bottom:18px;"></div>
+          <div style="display:flex;flex-direction:column;gap:10px;font-size:14px;color:#3a2060;">
+            <div>→ Account creation &amp; full setup</div>
+            <div>→ Bio written &amp; optimized</div>
+            <div>→ Profile photo added</div>
+            <div>→ Business account setup with contact button</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bundle row -->
+      <div style="padding:20px 36px;background:#480b70;display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap;">
+        <span style="font-size:15px;color:rgba(255,255,255,0.8);font-family:'DM Sans',sans-serif;">Bundle both platforms</span>
+        <span style="color:rgba(255,255,255,0.4);font-size:18px;">→</span>
+        <span style="font-family:'Fraunces',serif;font-size:36px;font-weight:700;color:#e8a030;line-height:1;">$250</span>
+        <span style="background:rgba(232,160,48,0.2);color:#e8a030;font-size:12px;font-weight:700;padding:4px 14px;border-radius:50px;letter-spacing:0.05em;">SAVE $50</span>
+      </div>
+
     </div>
   </div>
 </section>
@@ -398,6 +458,9 @@
               <option value="" disabled selected>Select a package...</option>
               <option value="Starter — $400/mo (1 platform)">Starter — $400/mo (IG or Facebook)</option>
               <option value="Growth — $600/mo (IG + Facebook)">Growth — $600/mo (IG + Facebook)</option>
+              <option value="Account Setup — Facebook $150">Account Setup — Facebook $150</option>
+              <option value="Account Setup — Instagram $150">Account Setup — Instagram $150</option>
+              <option value="Account Setup — Both platforms $250">Account Setup — Both platforms $250</option>
               <option value="Not sure yet">Not sure yet — help me decide</option>
             </select>
           </div>
