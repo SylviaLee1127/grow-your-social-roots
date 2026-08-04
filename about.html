@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Sylvia | Grow Your Social Roots</title>
+<link rel="icon" type="image/png" href="favicon.png">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'DM Sans', sans-serif; background: #faf8ff; color: #3a2060; overflow-x: hidden; }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(250,248,255,0.95);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid #ede8f5;
+    padding: 0 6%;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 66px;
+  }
+  .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+  .nav-logo-icon {
+    background: #480b70; border-radius: 9px;
+    width: 36px; height: 36px; flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .nav-logo-text { display: flex; flex-direction: column; line-height: 1.1; }
+  .nav-logo-top { font-family: 'Fraunces', serif; font-size: 13px; color: #7a3520; }
+  .nav-logo-bottom { font-family: 'Fraunces', serif; font-size: 13px; font-weight: 700; color: #c95f3a; }
+  .nav-links { display: flex; align-items: center; gap: 28px; list-style: none; }
+  .nav-links a { font-size: 14px; font-weight: 500; color: #7a6a8a; text-decoration: none; transition: color 0.2s; }
+  .nav-links a:hover { color: #480b70; }
+  .nav-links a.active { color: #480b70; font-weight: 600; }
+  .nav-cta { background: #480b70 !important; color: white !important; padding: 9px 22px; border-radius: 50px; font-weight: 600 !important; font-size: 13.5px !important; }
+
+  /* HERO */
+  .about-hero {
+    min-height: 100vh;
+    display: flex; align-items: center;
+    padding: 110px 6% 70px;
+    background: #faf8ff;
+    position: relative; overflow: hidden;
+  }
+  .about-hero::before {
+    content: ''; position: absolute; top: -100px; right: -100px;
+    width: 500px; height: 500px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(72,11,112,0.07), transparent 65%);
+    pointer-events: none;
+  }
+  .hero-inner {
+    max-width: 1100px; margin: 0 auto; width: 100%;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
+  }
+
+  /* PHOTO */
+  .photo-wrap {
+    position: relative;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .photo-frame {
+    width: 100%; max-width: 380px;
+    aspect-ratio: 3/4;
+    background: #f0ebfa;
+    border: 2px solid #d8ccee;
+    border-radius: 24px;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    gap: 12px;
+    position: relative; overflow: hidden;
+  }
+  .photo-icon {
+    width: 72px; height: 72px; border-radius: 50%;
+    background: #d8ccee;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .photo-icon svg { width: 36px; height: 36px; fill: #9a8aaa; }
+  .photo-label { font-size: 13px; color: #9a8aaa; font-weight: 500; }
+  .photo-sublabel { font-size: 11px; color: #b8a8c8; }
+
+  .accent-card {
+    position: absolute;
+    background: white;
+    border: 1px solid #d8ccee;
+    border-radius: 14px;
+    padding: 12px 18px;
+    box-shadow: 0 4px 20px rgba(72,11,112,0.08);
+    z-index: 3;
+  }
+  .accent-card.top-right { top: -16px; right: -16px; }
+  .accent-card.bottom-left { bottom: -16px; left: -16px; }
+  .accent-label { font-size: 10px; color: #9a8aaa; margin-bottom: 2px; }
+  .accent-val { font-family: 'Fraunces', serif; font-size: 22px; font-weight: 700; color: #480b70; }
+  .accent-sub { font-size: 10px; color: #9a8aaa; }
+
+  /* TEXT SIDE */
+  .tag { font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #480b70; margin-bottom: 12px; }
+  h1 { font-family: 'Fraunces', serif; font-size: clamp(36px, 4vw, 52px); line-height: 1.1; color: #1a0a2e; margin-bottom: 20px; }
+  h1 em { font-style: italic; color: #c95f3a; }
+  .intro { font-size: 17px; color: #3a2060; line-height: 1.8; font-weight: 300; margin-bottom: 28px; }
+  .divider { width: 60px; height: 4px; background: #e8a030; border-radius: 2px; margin-bottom: 28px; }
+
+  /* VALUES */
+  .values { padding: 90px 6%; background: #f0ebfa; }
+  .section-wrap { max-width: 1100px; margin: 0 auto; }
+  .section-tag { font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #480b70; margin-bottom: 12px; }
+  .section-title { font-family: 'Fraunces', serif; font-size: clamp(26px, 3vw, 40px); line-height: 1.2; margin-bottom: 14px; color: #1a0a2e; }
+  .section-sub { font-size: 16px; color: #7a6a8a; font-weight: 300; line-height: 1.75; max-width: 520px; }
+
+  .values-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 52px; }
+  .value-card { background: white; border: 1px solid #d8ccee; border-radius: 18px; padding: 32px 28px; }
+  .value-icon { width: 48px; height: 48px; background: rgba(72,11,112,0.08); border: 1px solid rgba(72,11,112,0.15); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 18px; }
+  .value-icon svg { width: 22px; height: 22px; fill: #480b70; }
+  .value-title { font-size: 17px; font-weight: 600; color: #1a0a2e; margin-bottom: 10px; }
+  .value-desc { font-size: 14px; color: #7a6a8a; line-height: 1.75; font-weight: 300; }
+
+  /* FUN FACTS */
+  .fun { padding: 90px 6%; background: #ffffff; }
+  .fun-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; margin-top: 52px; }
+  .fun-facts { display: flex; flex-direction: column; gap: 16px; }
+  .fact { display: flex; align-items: center; gap: 16px; padding: 20px 24px; background: #faf8ff; border: 1px solid #d8ccee; border-radius: 14px; }
+  .fact-emoji { font-size: 28px; flex-shrink: 0; }
+  .fact-text { font-size: 15px; color: #3a2060; line-height: 1.5; }
+  .fact-text strong { color: #1a0a2e; display: block; margin-bottom: 2px; }
+
+  .cta-box { background: #480b70; border-radius: 24px; padding: 48px 40px; text-align: center; }
+  .cta-box h3 { font-family: 'Fraunces', serif; font-size: 32px; font-weight: 700; color: white; margin-bottom: 12px; }
+  .cta-box p { font-size: 15px; color: rgba(255,255,255,0.7); line-height: 1.7; margin-bottom: 28px; }
+  .cta-btn { display: inline-block; background: #e8a030; color: #1a0a2e; padding: 14px 32px; border-radius: 50px; font-size: 15px; font-weight: 700; text-decoration: none; transition: opacity 0.2s; }
+  .cta-btn:hover { opacity: 0.88; }
+
+  /* FOOTER */
+  footer { background: #1a0a2e; border-top: 1px solid #2a1060; padding: 28px 6%; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+  .footer-brand { font-family: 'Fraunces', serif; font-size: 14px; color: #c95f3a; }
+  .footer-brand span { color: #e8a030; }
+  .footer-copy { font-size: 12px; color: #7a6a9a; }
+
+  @media (max-width: 768px) {
+    .hero-inner, .fun-grid { grid-template-columns: 1fr; }
+    .values-grid { grid-template-columns: 1fr; }
+    .nav-links { display: none; }
+    .photo-wrap { order: -1; }
+    .photo-frame { max-width: 280px; aspect-ratio: 1; }
+    .accent-card { display: none; }
+    footer { flex-direction: column; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">
+    <div class="nav-logo-icon">
+      <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="1" y="13" width="5" height="8" rx="1" fill="rgba(232,160,48,0.45)"/>
+        <rect x="8" y="8" width="5" height="13" rx="1" fill="rgba(232,160,48,0.72)"/>
+        <rect x="15" y="2" width="5" height="19" rx="1" fill="#e8a030"/>
+      </svg>
+    </div>
+    <div class="nav-logo-text">
+      <span class="nav-logo-top">Grow Your</span>
+      <span class="nav-logo-bottom">Social Roots</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="index.html#pricing">Pricing</a></li>
+    <li><a href="#" class="active">About</a></li>
+    <li><a href="tel:+16292044291" style="display:flex;align-items:center;gap:6px;color:#480b70;font-weight:600;">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="#480b70"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>629-204-4291</a></li>
+    <li><a href="index.html#form" class="nav-cta">Get started</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="about-hero">
+  <div class="hero-inner">
+    <div>
+      <p class="tag">About me</p>
+      <h1>Hi, I'm <em>Sylvia.</em></h1>
+      <p class="intro">I started Grow Your Social Roots because I kept seeing great businesses go unnoticed. Not because they weren't good at what they do, but because they didn't have time to show up consistently on social media.</p>
+      <div class="divider"></div>
+      <p class="intro">That's where I come in. I handle your Instagram and Facebook so you can focus on what you do best: running your business. No fluff, no empty promises. Just consistent, on-brand content that keeps your audience engaged.</p>
+    </div>
+    <div class="photo-wrap">
+      <div class="photo-frame">
+        <div class="photo-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/></svg>
+        </div>
+        <p class="photo-label">Add your photo here</p>
+        <p class="photo-sublabel">Recommended: square or portrait</p>
+      </div>
+
+      <div class="accent-card bottom-left">
+        <div class="accent-label">Platforms managed</div>
+        <div class="accent-val">IG + FB</div>
+        <div class="accent-sub">Instagram & Facebook</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VALUES -->
+<section class="values">
+  <div class="section-wrap">
+    <p class="section-tag">My approach</p>
+    <h2 class="section-title">How I work with you</h2>
+    <p class="section-sub">Simple, transparent, and always on-brand. Here's what you can expect when we work together.</p>
+    <div class="values-grid">
+      <div class="value-card">
+        <div class="value-icon">
+          <svg viewBox="0 0 24 24"><path d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"/></svg>
+        </div>
+        <div class="value-title">Consistency first</div>
+        <div class="value-desc">Showing up regularly is the foundation of social media growth. I make sure your pages stay active and on-brand every single week. No gaps, no silence.</div>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">
+          <svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+        </div>
+        <div class="value-title">Your voice, not mine</div>
+        <div class="value-desc">I take the time to understand your business and your audience. Every caption and post sounds like you, not a generic template.</div>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">
+          <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/></svg>
+        </div>
+        <div class="value-title">Always in the loop</div>
+        <div class="value-desc">You'll never be left wondering what's going out on your pages. We check in monthly to review, plan ahead, and make sure everything feels right.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FUN FACTS + CTA -->
+<section class="fun">
+  <div class="section-wrap">
+    <div class="fun-grid">
+      <div>
+        <p class="section-tag">A little about me</p>
+        <h2 class="section-title">Beyond the business</h2>
+        <p class="section-sub">When I'm not scheduling posts and writing captions, you can probably find me doing one of these:</p>
+        <div class="fun-facts" style="margin-top:32px;">
+          <div class="fact">
+            <div class="fact-emoji">☕</div>
+            <div class="fact-text">
+              <strong>Coffee lover</strong>
+              A good cup of coffee is non-negotiable. It's basically fuel for content creation.
+            </div>
+          </div>
+          <div class="fact">
+            <div class="fact-emoji">🎵</div>
+            <div class="fact-text">
+              <strong>Music lover</strong>
+              Music is always playing in the background and sets the mood for every piece of content I create.
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <div class="cta-box">
+        <h3>Ready to work together?</h3>
+        <p>Let's hop on a quick call and talk about what consistent social media could do for your business.</p>
+        <a href="index.html#form" class="cta-btn">Get started today</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-brand">Grow Your <span>Social Roots</span></div>
+  <div class="footer-copy">© 2026 Grow Your Social Roots &nbsp;·&nbsp; <a href="tel:+16292044291" style="color:#7a6a9a;text-decoration:none;">629-204-4291</a></div>
+</footer>
+
+</body>
+</html>
