@@ -180,17 +180,31 @@
   .footer-copy { font-size: 12px; color: #7a6a9a; }
 
   /* ---- MOBILE ---- */
+  /* TABLET */
+  @media (max-width: 1024px) {
+    .hero-inner { grid-template-columns: 1fr; }
+    .hero-visual { display: none; }
+    .steps { grid-template-columns: 1fr 1fr; }
+    .pricing-cards-grid { grid-template-columns: 1fr 1fr !important; }
+    .contact-grid { grid-template-columns: 1fr; }
+    .addon-grid { grid-template-columns: 1fr 1fr !important; }
+  }
+
+  /* MOBILE */
   @media (max-width: 768px) {
+    nav { padding: 0 5%; }
+    .nav-links { display: none; }
     .hero-inner, .contact-grid { grid-template-columns: 1fr; }
     .hero-visual { display: none; }
     .steps, .pricing-grid { grid-template-columns: 1fr; }
-    .nav-links { display: none; }
-    .form-wrap { padding: 28px 20px; }
-    .form-row { grid-template-columns: 1fr; }
-    footer { flex-direction: column; text-align: center; }
     .pricing-cards-grid { grid-template-columns: 1fr !important; }
     .addon-grid { grid-template-columns: 1fr !important; }
     .addon-grid > div { border-right: none !important; border-bottom: 1px solid #d8ccee; }
+    .form-wrap { padding: 28px 20px; }
+    .form-row { grid-template-columns: 1fr; }
+    footer { flex-direction: column; text-align: center; }
+    section { padding: 60px 5%; }
+    .section-wrap { padding: 0; }
   }
 </style>
 </head>
@@ -219,7 +233,13 @@
     <li><a href="tel:+16292044291" style="font-size:14px;font-weight:600;color:#480b70;text-decoration:none;display:flex;align-items:center;gap:6px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="#480b70"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>629-204-4291</a></li>
     <li><a href="#form" class="nav-cta">Get started</a></li>
   </ul>
+  <a href="#form" class="mobile-nav-cta" style="display:none;background:#480b70;color:white;font-size:13px;font-weight:600;padding:8px 18px;border-radius:50px;text-decoration:none;">Get started</a>
 </nav>
+<style>
+@media (max-width: 768px) {
+  .mobile-nav-cta { display:flex !important; }
+}
+</style>
 
 <!-- HERO -->
 <section class="hero">
