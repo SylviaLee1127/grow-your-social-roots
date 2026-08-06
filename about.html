@@ -137,14 +137,31 @@
   .footer-brand span { color: #e8a030; }
   .footer-copy { font-size: 12px; color: #7a6a9a; }
 
+  /* TABLET */
+  @media (max-width: 1024px) {
+    .hero-inner { grid-template-columns: 1fr; gap: 40px; }
+    .fun-grid { grid-template-columns: 1fr; gap: 40px; }
+    .values-grid { grid-template-columns: 1fr 1fr; }
+    .photo-wrap { display: flex; justify-content: center; order: -1; }
+    .photo-frame { max-width: 320px; }
+    .accent-card { display: none; }
+  }
+
+  /* MOBILE */
   @media (max-width: 768px) {
-    .hero-inner, .fun-grid { grid-template-columns: 1fr; }
+    .hero-inner, .fun-grid { grid-template-columns: 1fr; gap: 32px; }
     .values-grid { grid-template-columns: 1fr; }
+    .about-hero { padding: 90px 5% 50px; }
+    .values, .fun { padding: 60px 5%; }
+    nav { padding: 0 5%; }
     .nav-links { display: none; }
-    .photo-wrap { order: -1; }
-    .photo-frame { max-width: 280px; aspect-ratio: 1; }
+    .photo-wrap { display: flex; justify-content: center; order: -1; }
+    .photo-frame { max-width: 260px; aspect-ratio: 3/4; }
     .accent-card { display: none; }
     footer { flex-direction: column; text-align: center; }
+    h1 { font-size: 36px; }
+    .cta-box { padding: 32px 24px; }
+    .cta-box h3 { font-size: 24px; }
   }
 </style>
 </head>
@@ -172,7 +189,13 @@
       <svg width="14" height="14" viewBox="0 0 24 24" fill="#480b70"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>629-204-4291</a></li>
     <li><a href="index.html#form" class="nav-cta">Get started</a></li>
   </ul>
+  <a href="index.html#form" class="mobile-cta-nav" style="display:none;">Get started</a>
 </nav>
+<style>
+@media (max-width: 768px) {
+  .mobile-cta-nav { display:flex !important; background:#480b70; color:white; font-size:13px; font-weight:600; padding:8px 18px; border-radius:50px; text-decoration:none; }
+}
+</style>
 
 <!-- HERO -->
 <section class="about-hero">
